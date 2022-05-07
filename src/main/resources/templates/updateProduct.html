@@ -2,46 +2,53 @@
 <html html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .button {
-            font: bold 11px Arial;
-            text-decoration: none;
-            background-color: #EEEEEE;
-            color: #333333;
-            padding: 2px 6px 2px 6px;
-            border-top: 1px solid #CCCCCC;
-            border-right: 1px solid #333333;
-            border-bottom: 1px solid #333333;
-            border-left: 1px solid #CCCCCC;
-        }
-    </style>
-    <script>function validateForm() {
-        let x = document.forms["myForm"]["fname"].value;
-        if (x == "") {
-          alert("Description must be filled out");
-          return false;
-        }
-      }</script>
-    
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.button {
+			font: bold 11px Arial;
+			text-decoration: none;
+			background-color: #EEEEEE;
+			color: #333333;
+			padding: 2px 6px 2px 6px;
+			border-top: 1px solid #CCCCCC;
+			border-right: 1px solid #333333;
+			border-bottom: 1px solid #333333;
+			border-left: 1px solid #CCCCCC;
+		}
+	</style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+	<script>function validateForm() {
+			let x = document.forms["myForm"]["fname"].value;
+			if (x == "") {
+				alert("Description must be filled out");
+				return false;
+			}
+		}</script>
+
+
 </head>
 
 <body>
-    <h1>Product</h1>
-    <p>You must enter a description for the product</p><br>
-    <form name="myForm" method="POST" th:object="${product}">
-        <h5>Product Code: </h5>
-        <input disabled th:field="*{id}" type="text"><br>
-        <h5>Description: </h5>
-        <input name="fname" th:field="*{description}"  type="text"><br>
-        <h5>Price: </h5>
-        <input name="fname" th:field="*{price}" type="text"><br>
-        <button onclick="validateForm()">Update product</button>
-    </form>
-    <a class="button" href="/productMaint1/displayProducts">View Products</a>
+	<h1>Product</h1>
+	<p>You must enter a description for the product</p><br>
+	<form name="myForm" method="POST" th:object="${product}">
+		<h5>Product Code: </h5>
+		<input disabled th:field="*{id}" type="text"><br>
+		<h5>Description: </h5>
+		<input name="fname" th:field="*{description}" type="text"><br>
+		<h5>Price: </h5>
+		<input name="fname" th:field="*{price}" type="text"><br>
+		<button class="btn btn-primary" onclick="validateForm()">Update product</button>
+	</form>
+	<a class="bg-primary text-white button" href="/productMaint1/displayProducts">View Products</a>
 
 
 </body>
