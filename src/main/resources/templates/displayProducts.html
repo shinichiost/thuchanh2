@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Product Maintenance</title>
+	<style>
+			.button {
+				font: bold 11px Arial;
+				text-decoration: none;
+				background-color: #EEEEEE;
+				color: #333333;
+				padding: 2px 6px 2px 6px;
+				border-top: 1px solid #CCCCCC;
+				border-right: 1px solid #333333;
+				border-bottom: 1px solid #333333;
+				border-left: 1px solid #CCCCCC;
+			}
+		</style>
+</head>
+
+<body>
+	<h1>Products</h1>
+	<table>
+		<thead>
+			<tr>
+				<th> Code </th>
+				<th> Description </th>
+				<th>Price</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:if="${productlist.empty}">
+				<td colspan="2"> No Books Available </td>
+			</tr>
+			<tr th:each="product:${productlist}">
+
+				<td th:text="${product.id}"></td>
+				<td th:text="${product.description}"></td>
+				<td th:text="${product.price}"></td>
+				<td><a th:href="${'updateProduct?id=' + product.id}">Edit</a></td>
+				<td><a th:href="${'deleteProduct?id=' + product.id}">Delete</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<a class="button" href="/productMaint1/addProduct">Add Product</a>
+</body>
+
+</html>
